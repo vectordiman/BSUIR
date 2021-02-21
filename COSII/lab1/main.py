@@ -29,8 +29,9 @@ def main():
     plot.create_plot(frequency_list, amplitude_list_fft, 'График амплитудного спектра (БПФ)')
     plot.create_plot(x_list, y_list_fft_reverse, 'Обратный график (БПФ)')
 
-    print('Количество умножений (ДПФ): ' + str(fourier.counter_dft))
-    print('Количество умножений (БПФ): ' + str(fourier.counter_fft))
+    # Деление на 2, так как функции вызывались дважды
+    print('Количество умножений (ДПФ): ' + str(int(fourier.counter_dft / 2)))
+    print('Количество умножений (БПФ): ' + str(int(fourier.counter_fft / 2)))
 
     print('Время формирования (ДПФ): ' + str(fourier.time_dft))
     print('Время формирования (БПФ): ' + str(fourier.time_fft))

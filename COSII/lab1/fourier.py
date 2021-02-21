@@ -12,6 +12,7 @@ time_fft = 0
 def create_x(length):
     points = []
     for i in range(length):
+        # 2 * pi / n - разбиваем на интервалы
         points.append(i * numpy.pi / 32)
     return points
 
@@ -100,7 +101,7 @@ def create_recursive_fft(points, direction):
         fft_first.append(points[i] + points[i + int(n / 2)])
         fft_second.append((points[i] - points[i + int(n / 2)]) * w)
         w = w * wn
-        counter_fft += 2
+        counter_fft += 1
 
     even = create_recursive_fft(fft_first, direction)
     uneven = create_recursive_fft(fft_second, direction)
