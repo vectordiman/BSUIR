@@ -9,13 +9,6 @@ time_dft = 0
 time_fft = 0
 
 
-def swap(first, second):
-    temp = first
-    first = second
-    second = temp
-    return first, second
-
-
 def create_x(length):
     points = []
     for i in range(length):
@@ -93,8 +86,6 @@ def create_fft(points, direction):
 def create_recursive_fft(points, direction):
     global counter_fft
     n = int(len(points))
-    even = []
-    uneven = []
     fft_first = []
     fft_second = []
     fft = []

@@ -1,5 +1,4 @@
 import matplotlib.pyplot
-import matplotlib
 
 
 def create_plot(x_list, y_list, title):
