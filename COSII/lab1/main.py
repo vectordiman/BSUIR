@@ -3,7 +3,6 @@ import plot
 
 
 def main():
-    # Всегда степень 2-ки
     number = 64
     x_list = fourier.create_x(number)
     y_list = fourier.create_y(x_list)

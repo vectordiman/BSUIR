@@ -97,29 +97,26 @@ def create_recursive_fft(points, direction):
     uneven = []
     fft_first = []
     fft_second = []
+    fft = []
 
     if n == 1:
         return points
-
-    for i in range(n):
-        if i % 2 == 0:
-            even.append(points[i])
-        else:
-            uneven.append(points[i])
-
-    even_new = create_recursive_fft(even, direction)
-    uneven_new = create_recursive_fft(uneven, direction)
 
     wn = complex(numpy.cos(2 * numpy.pi / n), direction * numpy.sin(2 * numpy.pi / n))
     w = complex(1, 0)
 
     for i in range(int(n / 2)):
-        fft_first.append(even_new[i] + uneven_new[i] * w)
-        fft_second.append(even_new[i] - uneven_new[i] * w)
+        fft_first.append(points[i] + points[i + int(n / 2)])
+        fft_second.append((points[i] - points[i + int(n / 2)]) * w)
         w = w * wn
-        counter_fft += 3
+        counter_fft += 2
 
-    fft = fft_first + fft_second
+    even = create_recursive_fft(fft_first, direction)
+    uneven = create_recursive_fft(fft_second, direction)
+
+    for i in range(int(n / 2)):
+        fft.append(even[i])
+        fft.append(uneven[i])
 
     if direction == -1:
         for i in range(n):
