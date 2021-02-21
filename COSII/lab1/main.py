@@ -21,12 +21,12 @@ def main():
 
     plot.create_plot(x_list, y_list, 'График функции')
 
-    plot.create_stem(frequency_list, phase_list_dft, 'График фазового спектра (ДПФ)')
-    plot.create_stem(frequency_list, amplitude_list_dft, 'График амплитудного спектра (ДПФ)')
+    plot.create_plot(frequency_list, phase_list_dft, 'График фазового спектра (ДПФ)')
+    plot.create_plot(frequency_list, amplitude_list_dft, 'График амплитудного спектра (ДПФ)')
     plot.create_plot(x_list, y_list_dft_reverse, 'Обратный график (ДПФ)')
 
-    plot.create_stem(frequency_list, phase_list_fft, 'График фазового спектра (БПФ)')
-    plot.create_stem(frequency_list, amplitude_list_fft, 'График амплитудного спектра (БПФ)')
+    plot.create_plot(frequency_list, phase_list_fft, 'График фазового спектра (БПФ)')
+    plot.create_plot(frequency_list, amplitude_list_fft, 'График амплитудного спектра (БПФ)')
     plot.create_plot(x_list, y_list_fft_reverse, 'Обратный график (БПФ)')
 
     print('Количество умножений (ДПФ): ' + str(fourier.counter_dft))

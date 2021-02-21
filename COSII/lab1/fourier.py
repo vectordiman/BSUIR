@@ -12,14 +12,14 @@ time_fft = 0
 def create_x(length):
     points = []
     for i in range(length):
-        points.append(i * numpy.pi / 6)
+        points.append(i * numpy.pi / 32)
     return points
 
 
 def create_y(points):
     function = []
     for x in points:
-        function.append(numpy.sin(2 * x) + numpy.cos(7 * x))
+        function.append(complex(numpy.sin(2 * x) + numpy.cos(7 * x), x))
     return function
 
 
