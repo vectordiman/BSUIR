@@ -51,32 +51,6 @@ def create_phase(points, length):
     return phase
 
 
-def create_phase_fft(points, length):
-    phase = []
-    for i in range(length):
-        phase.append(cmath.phase(reflection(points)[i]))
-    return phase
-
-
-def reflection(points):
-    length = len(points)
-    first_part = []
-    second_part = []
-
-    i = int(length / 2)
-    while i < length:
-        first_part.append(points[i])
-        i += 1
-
-    for i in range(int(length / 2)):
-        second_part.append(points[i])
-
-    first_part.reverse()
-    second_part.reverse()
-    result = first_part + second_part
-    return result
-
-
 def create_dft(points, length, direction):
     global counter_dft
     global time_dft
@@ -87,11 +61,11 @@ def create_dft(points, length, direction):
 
     for m in range(n):
         c = complex(0)
-        w = (m / n) * -2j * cmath.pi
 
         for k in range(n):
-            c += cmath.exp(direction * w * k) * points[k]
-            counter_dft += 3
+            w = complex(numpy.cos(m * k * 2 * numpy.pi / n), direction * numpy.sin(m * k * 2 * numpy.pi / n))
+            c += w * points[k]
+            counter_dft += 1
 
         if direction == -1:
             c /= n

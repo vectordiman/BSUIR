@@ -17,7 +17,7 @@ def main():
 
     amplitude_list_fft = fourier.create_amplitude(y_list_fft, number)
     amplitude_list_dft = fourier.create_amplitude(y_list_dft, number)
-    phase_list_fft = fourier.create_phase_fft(y_list_fft, number)
+    phase_list_fft = fourier.create_phase(y_list_fft, number)
     phase_list_dft = fourier.create_phase(y_list_dft, number)
 
     plot.create_plot(x_list, y_list, 'График функции')
